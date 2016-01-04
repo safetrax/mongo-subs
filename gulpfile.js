@@ -5,14 +5,14 @@ var runSequence = require('run-sequence');
 var eslint = require('gulp-eslint');
 
 gulp.task('lint', function() {
-  return gulp.src(['src/**/*.js', 'test/**/*.js'])
+  return gulp.src(['lib/src/**/*.js', 'lib/test/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError());
 });
 
 gulp.task('test', function() {
-  return gulp.src('test/**/*.js', {read: false})
+  return gulp.src('lib/test/**/*.js', {read: false})
     .pipe(mocha({reporter: 'spec'}));
 });
 
