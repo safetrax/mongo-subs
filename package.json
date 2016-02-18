@@ -2,7 +2,7 @@
   "name": "mongo-subs",
   "version": "1.0.0",
   "description": "Mongo subscription library",
-  "author": "Vignesh",
+  "author": "Vignesh Periasami",
   "files": [
     "lib/src/",
     "lib/index.js"

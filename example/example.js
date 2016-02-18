@@ -16,7 +16,7 @@
  */
 
 'use strict';
-var Publisher = require('./publisher');
+var Publisher = require('./lib');
 
 var publisher = Publisher.createWith('mongodb://127.0.0.1:27017/local', {
   ns: 'test', coll: 'oplog.$main'
