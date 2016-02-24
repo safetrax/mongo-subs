@@ -5,7 +5,8 @@ var runSequence = require('run-sequence');
 var eslint = require('gulp-eslint');
 
 gulp.task('lint', function() {
-  return gulp.src(['lib/src/**/*.js', 'lib/test/**/*.js'])
+  return gulp.src(['lib/src/**/*.js', 'lib/test/**/*.js',
+    'example/**/*.js', '!**/node_modules/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError());

@@ -1,4 +1,5 @@
 node_modules/
+dist/
 *.log
 
 #ignoring emacs generated temp files
