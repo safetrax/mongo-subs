@@ -1,0 +1,12 @@
+{
+  "name": "mongo-subs",
+  "version": "1.0.0",
+  "description": "Example Mongo subscription library",
+  "author": "Vignesh Periasami",
+  "dependencies": {
+    "command-line-args": "^2.1.6",
+    "mongo-oplog": "^0.2.1",
+    "mongo-subs": "file:../lib",
+    "socket.io": "^1.3.6"
+  }
+}

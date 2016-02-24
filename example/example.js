@@ -16,14 +16,26 @@
  */
 
 'use strict';
-var Publisher = require('./lib');
+var Publisher = require('mongo-subs');
+var commandline = require('command-line-args');
 
-var publisher = Publisher.createWith('mongodb://127.0.0.1:27017/local', {
-  ns: 'test', coll: 'oplog.$main'
+var cli = commandline([
+  { name: 'mongouri', alias: 'm', type: String },
+  { name: 'mongodbname', alias: 'd', type: String }
+]);
+
+var options = cli.parse();
+var mongouri = options.mongouri || '127.0.0.1:27017';
+var mongodbname = options.mongodbname || 'mongodbapi';
+
+var publisher = Publisher.createWith('mongodb://' + options.mongouri + '/local', {
+  ns: options.mongodbname, coll: 'oplog.$main'
 });
 
+console.log('Listening on mongo:' + mongouri + ' dbname: ' + mongodbname);
+
 // listens to all.
-var sub = publisher.subscribe('*.hello', { 'name': 'Sridhar' });
+var sub = publisher.subscribe('*.hello');
 
 sub.on('insert', function(doc) {
   console.log('Insert' + JSON.stringify(doc));
