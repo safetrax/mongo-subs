@@ -17,6 +17,25 @@
 
 'use strict';
 
-var listenOverSocket = function() {
+var $ = require('jquery');
+var mongosubs = require('mongo-subs');
+var io = require('socket.io-client');
 
+$(document).ready(function() {
+  var socket = io();
+  mongosubs.use(socket);
+  listenToHello();
+});
+
+var listenToHello = function() {
+  var subs = mongosubs.subscribe('*.hello', {}, 'some');
+  subs.on('insert', function(doc) {
+    console.log('inserted');
+    console.log(doc);
+  });
+  subs.on('update', function(doc) {
+    console.log('updated');
+    console.log(doc);
+  });
+  console.log('done installing');
 };

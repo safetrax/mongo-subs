@@ -22,7 +22,18 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var MongoSubsRPC = require('mongo-subs').MongoRPC;
+
 var PORT = 3000;
+
+var publisher = require('./publisher');
+
+MongoSubsRPC.serveOverSocket(io, publisher);
+
+var server = http.listen(PORT, function() {
+  console.log('Listening on ' + PORT);
+});
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
@@ -32,6 +43,6 @@ app.get('/', function(req, res) {
   res.render('pages/hellosubs');
 });
 
-var server = http.listen(PORT, function() {
-  console.log('Listening on ' + PORT);
+io.on('connection', function(socket){
+  console.log('a user connected');
 });
