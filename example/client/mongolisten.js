@@ -16,19 +16,26 @@
  */
 
 'use strict';
-var Publisher = require('./publisher');
 
-var publisher = Publisher.createWith('mongodb://127.0.0.1:27017/local', {
-  ns: 'test', coll: 'oplog.$main'
+var $ = require('jquery');
+var mongosubs = require('mongo-subs');
+var io = require('socket.io-client');
+
+$(document).ready(function() {
+  var socket = io();
+  mongosubs.use(socket);
+  listenToHello();
 });
 
-// listens to all.
-var sub = publisher.subscribe('*.hello', { 'name': 'Sridhar' });
-
-sub.on('insert', function(doc) {
-  console.log('Insert' + JSON.stringify(doc));
-});
-
-sub.on('update', function(doc) {
-  console.log('Hello ' + JSON.stringify(doc));
-});
+var listenToHello = function() {
+  var subs = mongosubs.subscribe('*.hello', {}, 'some');
+  subs.on('insert', function(doc) {
+    console.log('inserted');
+    console.log(doc);
+  });
+  subs.on('update', function(doc) {
+    console.log('updated');
+    console.log(doc);
+  });
+  console.log('done installing');
+};

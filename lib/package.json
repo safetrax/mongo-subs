@@ -1,0 +1,14 @@
+{
+  "name": "mongo-subs",
+  "version": "1.0.3",
+  "description": "Mongo subscription library",
+  "author": "Vignesh Periasami",
+  "files": [
+    "src/",
+    "index.js"
+  ],
+  "browser": "./src/clientmongorpc.js",
+  "dependencies": {
+    "mongo-oplog": "^0.2.1"
+  }
+}

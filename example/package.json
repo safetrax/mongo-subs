@@ -1,0 +1,17 @@
+{
+  "name": "mongo-subs-example",
+  "version": "1.0.0",
+  "description": "Example Mongo subscription library",
+  "author": "Vignesh Periasami",
+  "dependencies": {
+    "command-line-args": "^2.1.6",
+    "debug": "^2.2.0",
+    "express": "^4.13.4",
+    "jade": "^1.11.0",
+    "jquery": "^2.2.1",
+    "mongo-oplog": "^0.2.1",
+    "mongo-subs": "file:../lib",
+    "socket.io": "^1.4.5",
+    "socket.io-client": "^1.4.5"
+  }
+}
