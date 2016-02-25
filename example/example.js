@@ -19,8 +19,6 @@
 
 var publisher = require('./publisher');
 
-console.log('Listening on mongo:' + mongouri + ' dbname: ' + mongodbname);
-
 // listens to all.
 var sub = publisher.subscribe('*.hello');
 
