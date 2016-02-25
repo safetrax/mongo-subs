@@ -1,8 +1,21 @@
 {
   "name": "mongo-subs",
-  "version": "1.0.3",
+  "version": "0.0.1",
   "description": "Mongo subscription library",
   "author": "Vignesh Periasami",
+  "homepage": "https://github.com/safetrax/mongo-subs",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/safetrax/mongo-subs.git"
+  },
+  "keywords": [
+    "mongo",
+    "mongosubs",
+    "subscription",
+    "socket",
+    "oplog"
+  ],
+  "license": "Apache V2",
   "files": [
     "src/",
     "index.js"
