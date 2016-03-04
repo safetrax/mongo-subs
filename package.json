@@ -21,7 +21,7 @@
     "lib/index.js"
   ],
   "main": "lib/index.js",
-  "browser": ".lib/src/clientmongorpc.js",
+  "browser": "./lib/src/clientmongorpc.js",
   "dependencies": {
     "mongo-oplog": "^1.0.1",
     "mongodb": "^2.1.7",
