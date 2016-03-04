@@ -37,5 +37,14 @@ var listenToHello = function() {
     console.log('updated');
     console.log(doc);
   });
+
+  $('#unsubscribe').click(function(e) {
+    if (!subs) {
+      return;
+    }
+    e.preventDefault();
+    subs.destroy();
+    subs = null;
+  });
   console.log('done installing');
 };
