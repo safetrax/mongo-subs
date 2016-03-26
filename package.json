@@ -1,6 +1,6 @@
 {
   "name": "mongo-subs",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mongo subscription library",
   "author": "Vignesh Periasami",
   "homepage": "https://github.com/safetrax/mongo-subs",
