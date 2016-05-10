@@ -21,11 +21,12 @@
     "lib/index.js"
   ],
   "main": "lib/index.js",
-  "browser": "./lib/src/clientmongorpc.js",
+  "browser": "./lib/src/clientmongosubs.js",
   "dependencies": {
     "mongo-oplog": "^1.0.1",
     "mongodb": "^2.1.7",
-    "promise": "^7.1.1"
+    "promise": "^7.1.1",
+    "socket.io-client": "^1.4.6"
   },
   "devDependencies": {
     "chai": "^3.2.0",

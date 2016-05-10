@@ -19,22 +19,24 @@
 
 var $ = require('jquery');
 var mongosubs = require('mongo-subs');
-var io = require('socket.io-client');
 
 $(document).ready(function() {
-  var socket = io();
-  mongosubs.use(socket);
   listenToHello();
 });
 
 var listenToHello = function() {
-  var subs = mongosubs.subscribe('*.hello', {}, 'some');
+  var subs = mongosubs.subscribe('*.hello', { hell: true }, 'some');
   subs.on('insert', function(doc) {
     console.log('inserted');
     console.log(doc);
   });
   subs.on('update', function(doc) {
     console.log('updated');
+    console.log(doc);
+  });
+
+  subs.on('queryfail', function(doc) {
+    console.log('failed');
     console.log(doc);
   });
 
