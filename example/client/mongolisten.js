@@ -26,6 +26,7 @@ $(document).ready(function() {
 
 var listenToHello = function() {
   var subs = mongosubs.subscribe('*.hello', { hell: true }, 'some');
+  subs.filter({ active: true });
   subs.on('insert', function(doc) {
     console.log('inserted');
     console.log(doc);
